@@ -1,0 +1,13 @@
+{
+  "name": "arghavan",
+  "version": "1.0.0",
+  "description": "Meet Arghavan Saatsaz, cybersecurity student and aspiring SOC analyst. Run: npx arghavan",
+  "bin": { "arghavan": "bin/card.js" },
+  "files": ["bin/card.js"],
+  "keywords": ["card", "npx", "cybersecurity", "portfolio", "business-card"],
+  "author": "Arghavan Saatsaz (https://arghavansaat.com)",
+  "homepage": "https://arghavansaat.com",
+  "repository": { "type": "git", "url": "git+https://github.com/Aransaat/Portfolio-.git" },
+  "license": "MIT",
+  "engines": { "node": ">=14" }
+}
