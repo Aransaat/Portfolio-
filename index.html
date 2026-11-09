@@ -276,6 +276,18 @@ footer{font-family:var(--f-hand);text-align:center;font-size:20px;padding-block:
   .duo2{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-inline:20px}
   .duo2 .contact{padding-block:30px 40px}
 }
+.term{margin:26px auto 0;max-width:440px;text-align:left;background:#14161a;color:#d7dde6;border-radius:12px;overflow:hidden;
+  box-shadow:0 14px 26px -14px rgba(0,0,0,.6);font:13px/1.55 var(--f-type);transform:rotate(-.6deg)}
+.term-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#24272d}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:8px;color:#8b929c;font-size:11.5px}
+.term-body{padding:12px 14px 14px;overflow-x:auto}
+.term-cmd{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.term-cmd code{font:inherit;color:#fff;white-space:nowrap}.term-cmd code b{color:#7fb6f0;font-weight:400}
+.term-cmd button{font:inherit;font-size:11.5px;color:#d7dde6;background:transparent;border:1px solid #4a505a;border-radius:6px;padding:3px 9px;cursor:pointer}
+.term-out{margin:10px 0 0;color:#9fb3c8;white-space:pre;font-size:12px}
+.term-out em{font-style:normal;color:#fff}.term-out u{text-decoration:none;color:#f5b3d0}
+.term-note{color:#8b929c;font-size:11.5px;margin-top:8px}
 </style>
 
 </head>
@@ -425,6 +437,18 @@ footer{font-family:var(--f-hand);text-align:center;font-size:20px;padding-block:
         <a class="btn" href="https://github.com/aransaat">GitHub</a>
       </div>
       <div class="email"><span id="mail">Aranisreadytowork@outlook.com</span><button type="button" id="copy">Copy</button></div>
+      <div class="term" aria-label="Terminal business card">
+        <div class="term-bar"><i></i><i></i><i></i><span>try me in your terminal</span></div>
+        <div class="term-body">
+          <div class="term-cmd"><code><b>$</b> <span id="npxcmd">npx github:Aransaat/Portfolio-</span></code><button type="button" id="copynpx">Copy</button></div>
+<pre class="term-out">╭────────────────────────────────╮
+│  <em>Arghavan Saatsaz</em>              │
+│  <u>blue team in training *</u>       │
+│  Security+ · SOC analyst ready │
+╰────────────────────────────────╯</pre>
+          <div class="term-note">Needs Node.js. Prints a short intro card about me.</div>
+        </div>
+      </div>
     </section>
     </div>
     <footer>Arghavan Saatsaz · McKinney, TX ✶</footer>
@@ -536,6 +560,14 @@ footer{font-family:var(--f-hand);text-align:center;font-size:20px;padding-block:
     });
     btn.addEventListener("click",()=>{on=!on;paint();try{localStorage.setItem("typeSound",on?"on":"off")}catch(e){} if(on)clack(true)});
   })();
+
+  // copy npx command
+  const nb=document.getElementById("copynpx"), nc=document.getElementById("npxcmd");
+  nb.addEventListener("click",()=>{
+    const done=(m)=>{nb.textContent=m;setTimeout(()=>nb.textContent="Copy",2000)};
+    const sel=()=>{const rg=document.createRange();rg.selectNodeContents(nc);const s=getSelection();s.removeAllRanges();s.addRange(rg);done("Press ⌘/Ctrl+C")};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(nc.textContent).then(()=>done("Copied"),sel);else sel();
+  });
 })();
 </script>
 
